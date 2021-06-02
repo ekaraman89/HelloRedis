@@ -8,15 +8,16 @@ namespace HelloRedis
         private static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            for (int i = 16; i < 55; i++)
+            int start = 1;
+            int end = 50;
+            for (int i = start; i < end; i++)
             {
                 Random rnd = new Random();
                 SaveData($"key{i}", rnd.Next(100).ToString());
             }
             Console.Write("Yazma Islemi Tamamlandi\nOkumaya basliyor\n");
-            for (int i = 16; i < 55; i++)
+            for (int i = start; i < end; i++)
             {
-                Random rnd = new Random();
                 var s = ReadData($"key{i}");
                 Console.WriteLine(s);
             }
