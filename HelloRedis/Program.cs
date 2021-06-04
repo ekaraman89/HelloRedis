@@ -5,6 +5,7 @@ namespace HelloRedis
 {
     internal class Program
     {
+        private const string option = "localhost:6379";
         private static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
@@ -25,7 +26,7 @@ namespace HelloRedis
 
         private static void SaveData(string key, string value)
         {
-            var options = ConfigurationOptions.Parse("localhost:6379");
+            var options = ConfigurationOptions.Parse(option);
             options.Password = "tt";
             ConnectionMultiplexer redisCon = ConnectionMultiplexer.Connect(options);
             IDatabase conn = redisCon.GetDatabase();
@@ -34,7 +35,7 @@ namespace HelloRedis
 
         private static string ReadData(string key)
         {
-            var options = ConfigurationOptions.Parse("localhost:6379");
+            var options = ConfigurationOptions.Parse(option);
             options.Password = "tt";
             ConnectionMultiplexer redisCon = ConnectionMultiplexer.Connect(options);
             IDatabase conn = redisCon.GetDatabase();
